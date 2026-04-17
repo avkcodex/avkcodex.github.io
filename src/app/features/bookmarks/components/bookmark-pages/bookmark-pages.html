@@ -6,7 +6,10 @@
   <div class="search">
     <mat-form-field  subscriptSizing="dynamic">
       <input matInput (ngModelChange)="onSearchChange($event)" [(ngModel)]="searchTerm" placeholder="Search bookmarks"/>
-      <mat-icon matSuffix>search</mat-icon>
+      <mat-icon matSuffix *ngIf="!searchTerm">search</mat-icon>
+        <button mat-icon-button matSuffix (click)="clearSearch()" *ngIf="searchTerm">
+    <mat-icon>close</mat-icon>
+  </button>
     </mat-form-field>
   </div>
   <div class="bookmark-header_right add-action" >
