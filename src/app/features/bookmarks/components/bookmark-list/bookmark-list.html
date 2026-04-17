@@ -16,7 +16,7 @@
     </mat-card-actions>
   </mat-card-header>
   <mat-card-content>
-    <a [href]="list.url" target="_blank">{{ list.url }}</a>
+    <a class="truncate" [title]="list.url" [href]="list.url" target="_blank">{{ list.url }}</a>
     <p>This is where your bookmark description or a small preview of the site goes.</p>
   </mat-card-content>
 </mat-card>
