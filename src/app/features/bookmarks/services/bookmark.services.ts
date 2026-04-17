@@ -4,12 +4,12 @@ import { Bookmark } from "../model/bookmarks.model";
 
 @Injectable({ providedIn: 'root' })
 export class BookmarkService {
-  private api = 'http://localhost:3000/bookmarks';
+  private api = 'https://avkcodex-github-io.onrender.com/bookmarks';
 
   constructor(private http: HttpClient) {}
 
   getAll() {
-    return this.http.get<any[]>('http://localhost:3000/bookmarks');
+    return this.http.get<any[]>('https://avkcodex-github-io.onrender.com');
   }
 
   add(bookmark: Bookmark) {

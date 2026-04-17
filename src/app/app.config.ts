@@ -7,6 +7,7 @@ import { provideEffects } from '@ngrx/effects';
 import { bookmarkReducer } from './features/bookmarks/store/bookmark.reducer';
 import { BookmarkEffects } from './features/bookmarks/store/bookmark.effects';
 import { provideHttpClient } from '@angular/common/http';
+import { importProvidersFrom } from '@angular/core';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -15,6 +16,6 @@ export const appConfig: ApplicationConfig = {
      provideHttpClient(),
     provideStore(),
     provideState('bookmarks', bookmarkReducer),
-    provideEffects([BookmarkEffects])
+    provideEffects([BookmarkEffects]),
   ]
 };
