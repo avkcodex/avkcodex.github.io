@@ -1,0 +1,10 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <h3>{{ bookmark ? 'Edit Bookmark' : 'Add Bookmark' }}</h3>
+  <mat-form-field appearance="outline" subscriptSizing="dynamic"> <input matInput formControlName="title" placeholder="Title"></mat-form-field>
+  <mat-form-field appearance="outline" subscriptSizing="dynamic"> <input matInput formControlName="url" placeholder="URL"></mat-form-field>
+  <button type="submit" mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+    {{ bookmark ? 'Update' : 'Add' }}
+  </button>
+</form>
+
+

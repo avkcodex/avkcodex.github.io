@@ -1,0 +1,64 @@
+ <mat-toolbar color="primary" class="bookmark-header">
+  <div class="logo">
+    <mat-icon>bookmark</mat-icon>
+    <span class="title">Bookmarker</span>
+  </div>
+  <div class="search">
+    <mat-form-field  subscriptSizing="dynamic">
+      <input matInput (ngModelChange)="onSearchChange($event)" [(ngModel)]="searchTerm" placeholder="Search bookmarks"/>
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </div>
+  <div class="bookmark-header_right add-action" >
+      <mat-icon (click)="toggleView()">{{view}}</mat-icon>
+      <mat-icon (click)="openPanel()">add</mat-icon>
+  </div>
+</mat-toolbar>
+<section class="bookmark-container" [ngClass]="{ 'list-view': isSelected }">
+
+<ng-container *ngIf="(today$ | async) as today">
+  <div class="lists">
+  <h2>Today</h2>
+  <app-bookmark-list
+    *ngIf="today.length"
+    [bookmarks]="today"
+    (delete)="delete($event)"
+    (edit)="openEdit($event)">
+  </app-bookmark-list>
+  <p *ngIf="!today.length">No data found!</p>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="(yesterday$ | async) as yesterday">
+   <div class="lists">
+  <h2 >Yesterday</h2>
+  <app-bookmark-list
+    *ngIf="yesterday.length"
+    [bookmarks]="yesterday"
+    (delete)="delete($event)"
+    (edit)="openEdit($event)">
+  </app-bookmark-list>
+  <p *ngIf="!yesterday.length">No data found!</p>
+</div>
+</ng-container>
+
+<ng-container *ngIf="(older$ | async) as older">
+  <div class="lists">
+  <h2>Older</h2>
+  <app-bookmark-list
+    *ngIf="older.length"
+    [bookmarks]="older"
+    (delete)="delete($event)"
+    (edit)="openEdit($event)">
+  </app-bookmark-list>
+  <p *ngIf="!older.length">No data found!</p>
+</div>
+</ng-container>
+
+<div class="overlay" *ngIf="isOpen" (click)="closePanel()"></div>
+<div class="side-panel" [class.open]="isOpen">
+<app-bookmark-form
+  [bookmark]="selectedBookmark"
+  (save)="handleSave($event)">
+</app-bookmark-form>
+</div>

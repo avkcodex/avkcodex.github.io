@@ -1,0 +1,22 @@
+<mat-card *ngFor="let list of bookmarks" class="card">
+  <mat-card-header>
+    <mat-card-title>
+      <div mat-card-avatar class="header-image"></div>
+      <span class="truncate">{{ list.title }}</span>
+    </mat-card-title>
+    <mat-card-actions>
+       <button mat-icon-button [matMenuTriggerFor]="menu">
+  <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="edit.emit(list)"><mat-icon >edit</mat-icon> Edit</button>
+      <button mat-menu-item (click)="delete.emit(list.id)"><mat-icon >delete</mat-icon> Delete</button>
+      <!-- <mat-icon (click)="add.emit()">add</mat-icon> -->
+</mat-menu>
+    </mat-card-actions>
+  </mat-card-header>
+  <mat-card-content>
+    <a [href]="list.url" target="_blank">{{ list.url }}</a>
+    <p>This is where your bookmark description or a small preview of the site goes.</p>
+  </mat-card-content>
+</mat-card>
