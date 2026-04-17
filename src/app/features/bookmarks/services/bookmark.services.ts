@@ -9,7 +9,7 @@ export class BookmarkService {
   constructor(private http: HttpClient) {}
 
   getAll() {
-    return this.http.get<any[]>('https://avkcodex-github-io.onrender.com');
+    return this.http.get<any[]>(this.api);
   }
 
   add(bookmark: Bookmark) {
