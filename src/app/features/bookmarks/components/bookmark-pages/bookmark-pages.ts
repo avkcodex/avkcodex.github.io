@@ -24,6 +24,7 @@ import { MatButtonModule } from '@angular/material/button'
 import { FormsModule } from '@angular/forms'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { map } from 'rxjs'
+import { RouterModule } from '@angular/router'
 
 @Component({
   standalone: true,
@@ -38,7 +39,8 @@ import { map } from 'rxjs'
     MatIconModule,
     MatButtonModule,
     FormsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    RouterModule
   ],
   templateUrl: './bookmark-pages.html',
   styleUrl: './bookmark-pages.scss',

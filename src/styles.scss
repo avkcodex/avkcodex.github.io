@@ -1,5 +1,11 @@
 @use '@angular/material' as mat;
 
+:root {
+    --bg-color: #f9f7f2;
+    --line-color: #a0a0a0;
+    --c1: #69a7a8; --c2: #d65a44; --c3: #e8a241; --c4: #b52b53; --c5: #1c7a7a;
+}
+
 html {
   height: 100%;
   @include mat.theme((
